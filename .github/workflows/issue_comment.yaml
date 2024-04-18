@@ -24,19 +24,7 @@ jobs:
             reactions: '+1'
 
   
-  comment-with-api:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create comment with API
-        run: |
-          comment_body="Comment from the API call, not an action"  # Store body in a variable
-          gh api -X POST \
-            http://api.github.com/repos/${{ github.repository_owner }}/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments \
-            -f body="$comment_body" 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-             
+ 
             
         
         
